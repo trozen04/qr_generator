@@ -48,31 +48,38 @@ class CustomTextField extends StatelessWidget {
           ),
           // Text Input
           Expanded(
-            child: Focus(
-              child: TextFormField(
-                controller: controller,
-                keyboardType: TextInputType.url,
-                style: CustomTextStyles.textFieldInput(context),
-                cursorColor: AppColors.textHighlight,
-                decoration: InputDecoration(
-                  hintText: hintText,
-                  hintStyle: CustomTextStyles.textFieldHint(context).copyWith(
-                    color: controller.text.isEmpty ? AppColors.textPrimary.withOpacity(0.5) : Colors.transparent,
+            child: Scrollbar(
+              child: SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: height * 0.25,  // limit overall height
                   ),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: height * 0.02,
-                    horizontal: width * 0.02,
+                  child: TextFormField(
+                    controller: controller,
+                    keyboardType: TextInputType.multiline,
+                    minLines: 1,
+                    maxLines: null,
+                    expands: false,
+                    style: CustomTextStyles.textFieldInput(context),
+                    cursorColor: AppColors.textHighlight,
+                    decoration: InputDecoration(
+                      hintText: hintText,
+                      hintStyle: CustomTextStyles.textFieldHint(context).copyWith(
+                        color: controller.text.isEmpty ? AppColors.textPrimary.withOpacity(0.5) : Colors.transparent,
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: height * 0.02,
+                        horizontal: width * 0.02,
+                      ),
+                    ),
                   ),
                 ),
               ),
-              onFocusChange: (hasFocus) {
-                if (hasFocus && controller.text.isEmpty) {
-                  controller.notifyListeners();
-                }
-              },
             ),
           ),
+
+
         ],
       ),
     );

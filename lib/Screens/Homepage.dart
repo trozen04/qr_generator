@@ -76,19 +76,13 @@ class _HomePageState extends State<HomePage> {
 
 
   void _generateQR() {
-    final url = _urlController.text.trim();
-
-    // Better URL validation
-    try {
-      final uri = Uri.parse(url);
-      if (!uri.hasAbsolutePath || uri.scheme.isEmpty) {
-        throw FormatException('Invalid URL');
-      }
-    } catch (e) {
+    //final url = _urlController.text.trim();
+    final url = _urlController.text;
+    if(url.isEmpty) {
       CustomSnackbar.show(context,
-          message: 'Please enter a valid URL (e.g., https://example.com)',
-          isSuccess: false
-      );
+        message: 'Please enter valid data',
+        isSuccess: false
+        );
       return;
     }
 
@@ -140,7 +134,7 @@ class _HomePageState extends State<HomePage> {
 
               CustomTextField(
                 controller: _urlController,
-                hintText: 'Enter URL (e.g., https://example.com)',
+                hintText: 'Paste your URL or type your data here',
               ),
 
               SizedBox(height: height * 0.02),
