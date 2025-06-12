@@ -6,7 +6,6 @@ import 'package:qr_code_generator/Utils/FFontStyles.dart';
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
-
   const CustomTextField({
     super.key,
     required this.controller,
@@ -17,7 +16,6 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -35,7 +33,6 @@ class CustomTextField extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Prefix Icon
           Container(
             width: width * 0.12,
             height: height * 0.055,
@@ -52,7 +49,7 @@ class CustomTextField extends StatelessWidget {
               child: SingleChildScrollView(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: height * 0.25,  // limit overall height
+                    maxHeight: height * 0.25,
                   ),
                   child: TextFormField(
                     controller: controller,
@@ -78,8 +75,6 @@ class CustomTextField extends StatelessWidget {
               ),
             ),
           ),
-
-
         ],
       ),
     );

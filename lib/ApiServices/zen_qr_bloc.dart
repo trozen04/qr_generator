@@ -6,6 +6,8 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 import 'package:mime/mime.dart';
+
+import '../Utils/Constants.dart';
 part 'zen_qr_event.dart';
 part 'zen_qr_state.dart';
 
@@ -50,11 +52,11 @@ class QRevixBloc extends Bloc<QRevixEvent, QRevixState> {
         }
 
         final response = await http.post(
-          Uri.parse('https://apihut.in/api/qrcode'),
+          Uri.parse(ApiConstants.baseUrl),
           headers: {
             'accept': 'application/json',
             'Content-Type': 'application/json',
-            'X-Avatar-Key': '454739b9-415f-493f-bc7c-e64f62bf1f13',
+            'X-Avatar-Key': ApiConstants.xAvatarKey,
           },
           body: jsonEncode(body),
         );
