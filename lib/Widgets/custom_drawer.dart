@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_generator/Screens/Static/privacy_policy.dart';
+import 'package:qr_code_generator/Utils/Constants.dart';
 import 'package:qr_code_generator/Utils/ImageAssets.dart';
 import '../Screens/Static/about_screen.dart';
 import '../Screens/Static/contact_me_screen.dart';
@@ -45,6 +46,11 @@ class CustomDrawer extends StatelessWidget {
                 NavigationUtils.slideTransition(PrivacyPolicy()),
               );
             },
+          ),
+          CustomListTile(
+            icon: Icons.store, // Store icon
+            title: 'My Store',
+            onTap: () => URLLauncherUtils.launch(context, Constants.storeUrl),
           ),
         ],
       ),

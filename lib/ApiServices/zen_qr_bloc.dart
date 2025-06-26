@@ -51,6 +51,7 @@ class QRevixBloc extends Bloc<QRevixEvent, QRevixState> {
           body['logo'] = 'data:$mimeType;base64,$base64Image';
         }
 
+
         final response = await http.post(
           Uri.parse(ApiConstants.baseUrl),
           headers: {

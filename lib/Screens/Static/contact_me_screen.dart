@@ -1,8 +1,5 @@
-import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:qr_code_generator/Widgets/CommonWIdgets.dart';
-import 'package:qr_code_generator/Widgets/CustomSnackbar.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../Utils/AppColors.dart';
 import '../../Utils/FFontStyles.dart';
 
@@ -51,36 +48,6 @@ class _ContactMeScreenState extends State<ContactMeScreen> with SingleTickerProv
     super.dispose();
   }
 
-  Future<void> launchURL(BuildContext context, String urlString) async {
-    if (urlString.isEmpty || urlString.trim().isEmpty) {
-      CustomSnackbar.show(context, message: 'URL is empty', isSuccess: false);
-      return;
-    }
-
-    String cleanedUrl = urlString.trim();
-    // Only prepend 'https://' if the URL doesn't already have a scheme
-    if (!cleanedUrl.contains('://')) {
-      if (cleanedUrl.startsWith('mailto:')) {
-        // Keep mailto: URLs as-is
-      } else {
-        cleanedUrl = 'https://$cleanedUrl';
-      }
-    }
-
-    try {
-      final Uri uri = Uri.parse(cleanedUrl);
-      developer.log('Attempting to launch: $cleanedUrl');
-      if (await canLaunchUrl(uri)) {
-        await launchUrl(uri, mode: LaunchMode.externalApplication);
-      } else {
-        CustomSnackbar.show(context, message: 'No app found to open $cleanedUrl', isSuccess: false);
-      }
-    } catch (e) {
-      developer.log('Error launching URL: $e');
-      CustomSnackbar.show(context, message: 'Failed to open $cleanedUrl: $e', isSuccess: false);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -124,19 +91,19 @@ class _ContactMeScreenState extends State<ContactMeScreen> with SingleTickerProv
                     icon: Icons.email,
                     title: 'Email',
                     subtitle: 'bhoopendrablog@gmail.com',
-                    onTap: () => launchURL(context, 'mailto:bhoopendrablog@gmail.com'),
+                      onTap: () => URLLauncherUtils.launch(context, 'mailto:bhoopendrablog@gmail.com')
                   ),
                   _buildContactTile(
                     icon: Icons.language,
                     title: 'Website',
                     subtitle: 'https://movieloadtime.blogspot.com/',
-                    onTap: () => launchURL(context, 'https://trozenwho.blogspot.com/'),
+                    onTap: () => URLLauncherUtils.launch(context, 'https://trozenwho.blogspot.com/'),
                   ),
                   _buildContactTile(
                     icon: Icons.video_library,
                     title: 'YouTube',
                     subtitle: '@trozen04',
-                    onTap: () => launchURL(context, 'https://www.youtube.com/@trozen04'),
+                    onTap: () => URLLauncherUtils.launch(context, 'https://www.youtube.com/@trozen04'),
                   ),
 
                 ],
