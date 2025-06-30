@@ -12,4 +12,4 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
-Constants.dart
+lib/Utils/Constants.dart
