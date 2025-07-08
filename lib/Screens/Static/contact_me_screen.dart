@@ -96,7 +96,7 @@ class _ContactMeScreenState extends State<ContactMeScreen> with SingleTickerProv
                   _buildContactTile(
                     icon: Icons.language,
                     title: 'Website',
-                    subtitle: 'https://movieloadtime.blogspot.com/',
+                    subtitle: 'Click to view',
                     onTap: () => URLLauncherUtils.launch(context, 'https://trozenwho.blogspot.com/'),
                   ),
                   _buildContactTile(

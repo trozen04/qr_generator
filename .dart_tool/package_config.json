@@ -159,9 +159,9 @@
     },
     {
       "name": "google_mobile_ads",
-      "rootUri": "file:///C:/Users/Bhoopendra/AppData/Local/Pub/Cache/hosted/pub.dev/google_mobile_ads-4.0.0",
+      "rootUri": "file:///C:/Users/Bhoopendra/AppData/Local/Pub/Cache/hosted/pub.dev/google_mobile_ads-6.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.15"
+      "languageVersion": "3.6"
     },
     {
       "name": "http",
@@ -543,15 +543,15 @@
     },
     {
       "name": "webview_flutter",
-      "rootUri": "file:///C:/Users/Bhoopendra/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter-4.9.0",
+      "rootUri": "file:///C:/Users/Bhoopendra/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter-4.13.0",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "webview_flutter_android",
-      "rootUri": "file:///C:/Users/Bhoopendra/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_android-3.16.9",
+      "rootUri": "file:///C:/Users/Bhoopendra/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_android-4.7.0",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "webview_flutter_platform_interface",
